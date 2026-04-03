@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Cloud Stories & Vault</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <title>مساحة التخزين السحابية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet" />
     
     <style>
@@ -13,12 +13,12 @@
             --primary-blue: #007aff;
             --ios-bg: #f2f2f7;
             --ios-red: #ff3b30;
-            --reader-bg: #121212; /* لون خلفية شاشة القراءة */
-            --reader-text: #e0e0e0; /* لون نص القراءة */
+            --reader-bg: #121212;
+            --reader-text: #e0e0e0;
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Tajawal', sans-serif;
             background-color: var(--ios-bg);
             margin: 0;
             padding: 0;
@@ -53,7 +53,7 @@
         .brand-logo {
             display: flex;
             align-items: center;
-            margin-left: 15px;
+            margin-right: 15px;
             color: #1c1c1e;
             font-weight: 700;
             font-size: 22px;
@@ -61,7 +61,7 @@
         
         .brand-logo .material-symbols-rounded {
             color: var(--primary-blue);
-            margin-right: 8px;
+            margin-left: 8px;
             font-size: 30px;
         }
 
@@ -69,17 +69,17 @@
         .side-menu {
             position: fixed;
             top: 0;
-            left: -300px; 
+            right: -300px; 
             width: 260px;
             height: 100%;
             background-color: #ffffff;
-            box-shadow: 5px 0 15px rgba(0,0,0,0.05);
-            transition: left 0.4s var(--ios-spring);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+            transition: right 0.4s var(--ios-spring);
             z-index: 1000;
             padding-top: 20px;
         }
 
-        .side-menu.active { left: 0; }
+        .side-menu.active { right: 0; }
 
         .menu-header {
             padding: 0 20px 20px 20px;
@@ -99,7 +99,7 @@
         }
 
         .menu-item:active { background-color: #f2f2f7; }
-        .menu-item .material-symbols-rounded { margin-right: 15px; color: #8e8e93; }
+        .menu-item .material-symbols-rounded { margin-left: 15px; color: #8e8e93; }
 
         /* التغبيش للقائمة */
         .overlay {
@@ -145,9 +145,7 @@
             font-weight: 700;
             color: #8e8e93;
             margin-bottom: 15px;
-            padding-left: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            padding-right: 5px;
         }
 
         .story-list {
@@ -173,15 +171,15 @@
         .story-icon {
             color: #8e8e93;
             font-size: 40px;
-            margin-right: 15px;
+            margin-left: 15px;
             background: #f2f2f7;
             padding: 10px;
             border-radius: 12px;
         }
 
         .story-details { flex-grow: 1; }
-        .story-details h3 { margin: 0 0 5px 0; font-size: 16px; font-weight: 700; color: #1c1c1e; line-height: 1.3;}
-        .story-details p { margin: 0; font-size: 13px; color: #8e8e93; }
+        .story-details h3 { margin: 0 0 5px 0; font-size: 15px; font-weight: 700; color: #1c1c1e; line-height: 1.4;}
+        .story-details p { margin: 0; font-size: 13px; color: #8e8e93; line-height: 1.4;}
         
         .read-btn-mini {
             background-color: #e5f0ff;
@@ -226,7 +224,6 @@
         .nav-item.active { color: var(--primary-blue); }
         .nav-item .material-symbols-rounded { font-size: 26px; margin-bottom: 4px; }
 
-
         /* --------------------------------------------------- */
         /* شاشة القراءة (الفخامة والسواد) */
         /* --------------------------------------------------- */
@@ -238,7 +235,7 @@
             height: 100%;
             background-color: var(--reader-bg);
             z-index: 3000;
-            display: none; /* مخفية بالبداية */
+            display: none;
             flex-direction: column;
             overflow-y: auto;
             animation: slideUpReader 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -280,17 +277,17 @@
         .reader-content {
             padding: 25px 20px 100px 20px;
             color: var(--reader-text);
-            font-size: 17px;
+            font-size: 16px;
             line-height: 1.8;
-            font-family: 'Georgia', serif; /* خط للقصص */
+            font-family: 'Tajawal', sans-serif;
         }
 
         .story-title-main {
-            font-size: 24px;
-            font-family: 'Roboto', sans-serif;
+            font-size: 22px;
             font-weight: 900;
             margin-bottom: 20px;
             color: #fff;
+            line-height: 1.4;
         }
 
         /* الجزء المغبش */
@@ -300,16 +297,16 @@
         }
 
         .blurred-text {
-            filter: blur(6px); /* قوة الغبش */
+            filter: blur(6px);
             opacity: 0.5;
-            user-select: none; /* يمنع النسخ */
+            user-select: none;
             pointer-events: none;
         }
 
         /* شاشة التحقق اللي تطلع فوق الجزء المغبش */
         .cpa-overlay {
             position: absolute;
-            top: 20px; /* تنزل شوي عن بداية الغبش */
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
@@ -331,8 +328,8 @@
             margin-bottom: 10px;
         }
 
-        .cpa-overlay h3 { margin: 0 0 10px 0; color: #fff; font-size: 18px; font-family: 'Roboto', sans-serif;}
-        .cpa-overlay p { margin: 0 0 20px 0; color: #aaa; font-size: 13px; font-family: 'Roboto', sans-serif; line-height: 1.5;}
+        .cpa-overlay h3 { margin: 0 0 10px 0; color: #fff; font-size: 18px; font-family: 'Tajawal', sans-serif;}
+        .cpa-overlay p { margin: 0 0 20px 0; color: #aaa; font-size: 13px; font-family: 'Tajawal', sans-serif; line-height: 1.5;}
 
         .verify-btn {
             background-color: var(--primary-blue);
@@ -348,19 +345,19 @@
             width: 100%;
             box-sizing: border-box;
             box-shadow: 0 4px 15px rgba(0, 122, 255, 0.4);
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Tajawal', sans-serif;
             border: none;
             cursor: pointer;
             transition: 0.2s;
         }
 
         .verify-btn:active { transform: scale(0.95); }
-        .verify-btn .material-symbols-rounded { margin-right: 8px; font-size: 20px;}
+        .verify-btn .material-symbols-rounded { margin-left: 8px; font-size: 20px;}
 
         /* زر النجاح المخفي */
         .success-btn {
             background-color: #34c759;
-            display: none; /* مخفي لين يخلص العداد */
+            display: none;
             box-shadow: 0 4px 15px rgba(52, 199, 89, 0.4);
         }
 
@@ -377,9 +374,9 @@
                 <span>LarissaStory</span>
             </div>
         </div>
-        <div class="menu-item" onclick="switchTab('home', this); toggleMenu();"><span class="material-symbols-rounded">menu_book</span> Library</div>
-        <div class="menu-item" onclick="switchTab('starred', this); toggleMenu();"><span class="material-symbols-rounded">star</span> Favorites</div>
-        <div class="menu-item" onclick="switchTab('settings', this); toggleMenu();"><span class="material-symbols-rounded">settings</span> Settings</div>
+        <div class="menu-item" onclick="switchTab('home', this); toggleMenu();"><span class="material-symbols-rounded">menu_book</span> المكتبة</div>
+        <div class="menu-item" onclick="switchTab('starred', this); toggleMenu();"><span class="material-symbols-rounded">star</span> المفضلة</div>
+        <div class="menu-item" onclick="switchTab('settings', this); toggleMenu();"><span class="material-symbols-rounded">settings</span> الإعدادات</div>
     </div>
 
     <div class="header">
@@ -392,31 +389,31 @@
 
     <div class="pages-container">
         <div class="page active" id="page-home">
-            <div class="section-title">Trending Stories</div>
+            <div class="section-title">القصص الشائعة الآن</div>
             
             <div class="story-list" id="storyListContainer">
                 </div>
         </div>
 
         <div class="page" id="page-starred">
-            <div class="empty-state"><span class="material-symbols-rounded">star</span><h2>No favorites yet</h2><p>Stories you star will appear here.</p></div>
+            <div class="empty-state"><span class="material-symbols-rounded">star</span><h2>لا توجد عناصر مميزة</h2><p>القصص التي تميزها بنجمة ستظهر هنا.</p></div>
         </div>
         <div class="page" id="page-shared">
-            <div class="empty-state"><span class="material-symbols-rounded">group</span><h2>Community</h2><p>Join the community to share stories.</p></div>
+            <div class="empty-state"><span class="material-symbols-rounded">group</span><h2>المجتمع</h2><p>انضم للمجتمع لمشاركة القصص.</p></div>
         </div>
         <div class="page" id="page-files">
-            <div class="empty-state"><span class="material-symbols-rounded">folder_open</span><h2>Your Drafts</h2><p>Write your own stories here.</p></div>
+            <div class="empty-state"><span class="material-symbols-rounded">folder_open</span><h2>مسوداتك</h2><p>اكتب قصصك الخاصة هنا.</p></div>
         </div>
         <div class="page" id="page-settings">
-            <div class="empty-state"><span class="material-symbols-rounded">settings</span><h2>Settings</h2><p>Please log in to access settings.</p></div>
+            <div class="empty-state"><span class="material-symbols-rounded">settings</span><h2>الإعدادات</h2><p>يرجى تسجيل الدخول للوصول للإعدادات.</p></div>
         </div>
     </div>
 
     <div class="bottom-nav">
-        <div class="nav-item active" onclick="switchTab('home', this)"><span class="material-symbols-rounded">home</span><span>Home</span></div>
-        <div class="nav-item" onclick="switchTab('starred', this)"><span class="material-symbols-rounded">star</span><span>Saved</span></div>
-        <div class="nav-item" onclick="switchTab('shared', this)"><span class="material-symbols-rounded">forum</span><span>Community</span></div>
-        <div class="nav-item" onclick="switchTab('files', this)"><span class="material-symbols-rounded">edit_document</span><span>Write</span></div>
+        <div class="nav-item active" onclick="switchTab('home', this)"><span class="material-symbols-rounded">home</span><span>الرئيسية</span></div>
+        <div class="nav-item" onclick="switchTab('starred', this)"><span class="material-symbols-rounded">star</span><span>المفضلة</span></div>
+        <div class="nav-item" onclick="switchTab('shared', this)"><span class="material-symbols-rounded">forum</span><span>المجتمع</span></div>
+        <div class="nav-item" onclick="switchTab('files', this)"><span class="material-symbols-rounded">edit_document</span><span>كتابة</span></div>
     </div>
 
     <div class="reader-modal" id="readerModal">
@@ -450,7 +447,7 @@
 
                     <button class="verify-btn success-btn" id="successBtn" onclick="unlockStory()">
                         <span class="material-symbols-rounded">lock_open</span>
-                        إكتمل التحقق
+                        إكتمل التحقق! اضغط للقراءة
                     </button>
                 </div>
             </div>
@@ -459,17 +456,15 @@
 
     <script>
         // ------------------------------------------------------------------------
-        // 🚨🚨🚨 مكتبة القصص (هنا تعدلين وتضيفين براحتك) 🚨🚨🚨
+        // 🚨🚨🚨 مكتبة القصص 🚨🚨🚨
+        // لاحظي علامة ( ` ) هي اللي استخدمناها عشان ننزل سطور براحتنا ومستحيل يخرب الكود!
         // ------------------------------------------------------------------------
         const stories = [
             {
                 id: 1,
-                // عنوان القصة:
-                title: "قصة خيانة صديقتي وكاميرات المراقبة السرية",
-                // الوصف الصغير اللي يظهر برا في البطاقة:
-                summary: "أسوأ طعنة تجيك من أقرب الناس لك! تخيلوا، أعز صديقاتي، عشرة العمر، أختي اللي ما جابتها أمي، اللي أمنتها على بيتي وعطيتها مفتاحي الاحتياطي عشان تأكل قطوتي وقت سفري..",
-                // الجزء الواضح اللي يقرأه الشخص بالبداية (بدون غبش):
-                clearText: ` أسوأ طعنة تجيك من أقرب الناس لك! تخيلوا، أعز صديقاتي، عشرة العمر، أختي اللي ما جابتها أمي، اللي أمنتها على بيتي وعطيتها مفتاحي الاحتياطي عشان تأكل قطوتي وقت سفري.. طلعت هي الكابوس اللي دمر حياتي!
+                title: `قصة خيانة صديقتي وكاميرات المراقبة السرية`,
+                summary: `أسوأ طعنة تجيك من أقرب الناس لك! تخيلوا، أعز صديقاتي، عشرة العمر...`,
+                clearText: `أسوأ طعنة تجيك من أقرب الناس لك! تخيلوا، أعز صديقاتي، عشرة العمر، أختي اللي ما جابتها أمي، اللي أمنتها على بيتي وعطيتها مفتاحي الاحتياطي عشان تأكل قطوتي وقت سفري.. طلعت هي الكابوس اللي دمر حياتي!
 
 السالفة وما فيها، إني كنت منتدبة لرحلة عمل في جدة، وخلصت شغلي ورجعت للرياض بدري بيوم. دخلت شقتي وأنا هلكانة وأدور الفراش. فتحت باب غرفتي وتفاجأت بلابتوب صديقتي مفتوح وشغال ومحطوط على سريري! استغربت، وش جاب لابتوبها هنا؟ هي المفروض تجي العصر تحط أكل للقطوة وتمشي.
 
@@ -483,112 +478,27 @@
 
 صديقة عمري ما كانت مجرد مريضة تتجسس علي؛ طلعت فاتحة بث مباشر (لايف) لحياتي الخاصة، وتبيع المقاطع لرجال في "الإنترنت المظلم" (الدارك ويب) من سنتين! كسبت وتاجرت بعرضي وخصوصيتي وطلّعت من وراي مئات الآلاف!
 
-فجأة.. وفي عز صدمتي.. سمعت صوت طقة الكالون ينفتح!  `,
-                // الجزء المثير والمخفي اللي عليه الغبش:
-                blurredText: ` `
-            }, /*
+فجأة.. وفي عز صدمتي.. سمعت صوت طقة الكالون ينفتح!`,
+                blurredText: `تجمدت في مكاني. صوت خطواتها كانت تقرب من الغرفة. قفلت اللابتوب بسرعة البرق ورميته على السرير ومثلت إني نايمة وتعبانة. دخلت الغرفة، شافتني، وشهقت برعب! "بسم الله! متى رجعتي؟ مو قلتي بكرة؟!" 
+
+ابتسمت لها ببرود وأنا أحس بنار تحرقني من الداخل.. وقلت لها: "خلصت بدري.. بس تصدقين؟ في شيء غريب بشقتي.. أحس إني مو لحالي."
+وجهها انخطف لونه، ومن هنا بدأت خطتي للانتقام منها وتدمير حياتها زي ما دمرتني...`
+            },/*
             {
                 id: 2,
-                title: "I took a house-sitting job for $1,000 per day!. They had one rule...",
-                summary: "Do not open the basement door. Honestly, I didn't care. I just wanted to watch Netflix...",
-                clearText: `I took a weekend house-sitting job for a rich couple in the hills. The pay was insanely good ($1,000 for 2 nights), and they only had one rule: Do not open the basement door. Honestly, I didn't care. I just wanted to watch Netflix and chill. The first night went fine. But on the second night, around 2 AM, the WiFi went down. I walked out to the hallway to restart the router, which happened to be right next to the basement door. As I was waiting for the lights to blink, I heard it... It wasn't a ghost noise. It was the sound of my own voice. A recording of me, laughing, from a conversation I had with my mom on the phone two hours ago. It was coming from under the basement door. My heart dropped. I slowly crept to the door, got on my knees, and looked through the bottom gap. The basement was pitch black, except for the glow of a large monitor.... `,
-                blurredText: `I froze completely. The man who supposedly hired me to watch his house was standing in the dark corner of my bedroom on the monitor, just staring at the empty bed where I was sleeping 10 minutes ago. He was holding a roll of duct tape.
-
-I knew I couldn't go back upstairs to get my keys or my phone. I had to leave right now. I quietly backed away from the basement door and crept toward the front entrance. I grabbed the doorknob and turned it. It was locked. Not just a deadbolt—the electronic keypad had been disabled from the inside, showing a solid red light. All the doors and windows on the ground floor had metal security shutters that had been silently lowered while I was in the hallway. I was trapped inside with him.
-
-Suddenly, I heard the wooden stairs creak. He was coming down. I panicked and ran into the kitchen, hiding inside the large walk-in pantry, squeezing myself behind bags of dog food. I held my breath as I heard his heavy footsteps slowly walking across the hardwood floor.
-
-"I know you're not upstairs anymore," he whispered. His voice echoed in the dark kitchen.
-
-I frantically looked around the pantry for a weapon or an escape route. That's when I noticed a small, dirty air vent near the floor. I pried the cover off silently and crawled inside the duct just as he opened the pantry door. I crawled through the dusty vents for what felt like hours, eventually making my way to the garage ceiling. I kicked out the vent cover, dropped onto the hood of his luxury car, and hit the manual garage door release.
-
-I ran barefoot for a mile until a passing car picked me up. When the police finally raided the house, the man was gone. But they found something worse in the basement. This wasn't his house. The real owners had been tied up in the soundproof basement for three days. The man had hired me off the internet just to have a new "guest" to play his sick game with.`
+                title: `بيت الأحلام اللي تحول لكابوس بـ 1000 دولار`,
+                summary: `أخذت وظيفة حراسة بيت غني لمدة يومين. كان عندهم شرط واحد فقط...`,
+                clearText: `أخذت وظيفة حراسة بيت في نهاية الأسبوع لزوجين أغنياء. الراتب كان خيالي (1000 دولار في ليلتين)، وكان عندهم قاعدة واحدة فقط: لا تفتح باب القبو أبدًا. بصراحة، ما اهتميت، كنت بس أبغى أتابع نتفليكس وأرتاح.`,
+                blurredText: `في الليلة الثانية، فصل الواي فاي. طلعت للممر عشان أعيد تشغيل الراوتر، واللي كان جنب باب القبو بالضبط. وأنا أنتظر، سمعت صوت.. ما كان صوت شبح، كان صوتي أنا! تسجيل لي وأنا أضحك من مكالمة مع أمي قبل ساعتين.. الصوت كان طالع من تحت باب القبو! نزلت على ركبي وطالعت من تحت الباب. القبو كان ظلام، إلا من شاشة كمبيوتر كبيرة، واللي شفته على الشاشة خلاني أتجمد من الرعب...`
             },
             {
                 id: 3,
-                title: "The Dashcam Footage Mystery",
-                summary: "My fiancé swore he was working at the hospital, so why did his dashcam SD card...",
-                clearText: `I pulled the SD card from my fiancé's dashcam for a minor insurance claim. I found a hidden 3 AM video of him in the woods, not at the hospital. He was burying a heavy, human-sized tarp in the glare of the headlights. As he pushed it in the dirt, a lifeless hand slipped out of the plastic wrapping. I zoomed in on the hand, and my heart completely stopped beating. On that dead hand was the exact same custom engagement ring that .that is currently sitting on my own finger. I paused the video, my vision blurring as a wave of pure nausea hit me. I looked down at my shaking hand. There was no mistaking the intricate silver filigree and the slightly chipped sapphire. It was the custom vintage ring he claimed his grandmother had passed down to him. But how could it be on that dead body?
-
-I forced myself to press play and fast-forwarded the footage. He spent two agonizing hours digging a deep hole in the harsh glare of the headlights, dumped the heavy tarp in, and shoveled the dirt back over it. When he finally climbed back into the driver's seat, the interior cabin camera caught his face perfectly. He wasn't crying. He wasn't in shock. He was humming a cheerful song. He picked up his phone, dialed a number, and put it on speaker.
-
-"It's done," he said smoothly, staring blankly into the dark woods. "The first fiancée is buried deep The new one is completely clueless. The transfer for the life insurance policy needs to be ready by next Tuesday, right after our wedding. My blood ran cold. I wasn't his only fiancée. The "business trips" and "double shifts at the hospital"—he was living a double life. He had proposed to another woman, likely with a duplicate ring, taken out a massive policy on her, and murdered her. And I was next. Our wedding was in six days.Suddenly... `,
-                blurredText: ` the crunch of gravel outside snapped me back to reality. I heard his heavy footsteps on the porch, followed by the familiar jingle of his keys.
-
-"Honey! I'm home!" he called out cheerfully, the front door swinging open.
-
-I had less than ten seconds. I frantically yanked the SD card out of my laptop, shoved it deep inside my sock, and slammed the laptop shut. I grabbed a heavy cast-iron skillet from the stove, pretending I was about to start cooking, and forced the biggest, falsest smile of my life as I walked into the hallway.
-
-"Hey babe! You're home early," I said, my voice trembling so badly I thought he would instantly notice.
-
-He smiled, taking off his jacket. "Yeah, it was a quiet shift. You look a little pale, sweetie. Are you feeling okay?" He took a step toward me, reaching out to touch my cheek. Every fiber of my being wanted to scream and run, but I stood frozen. His hand felt like ice against my skin. "You're burning up."
-
-"Just... just a headache," I stammered, gripping the skillet handle until my knuckles turned white. "I'm going to run to the pharmacy down the street to get some aspirin."
-
-His eyes darkened slightly, the cheerful facade slipping for a fraction of a second. "Nonsense. I'm a nurse, remember? I have the good stuff in my medical bag in the trunk. Let me go grab it."
-
-My heart hammered violently against my ribs. The trunk. The exact same trunk he had used to transport a dead body last night. "No!" I blurted out, a little too loudly. "I mean... I really need some fresh air. I'll just walk. I'll be back in five minutes."
-
-Before he could protest or reach out to grab me, I sidestepped him, grabbed my purse, bolted out the front door, and practically sprinted down the driveway. I didn't walk to the pharmacy. I ran three blocks to the nearest police station, bursting through the glass doors, hyperventilating and crying hysterically.
-
-It took me twenty minutes to calm down enough to explain the situation to a detective. When I finally handed over the SD card, they put me in a secure room and hooked the card up to their computers. I watched the color drain from the hardened detective's face as the raw video played on the screen.
-
-Within an hour, a SWAT team had surrounded our house. They breached the front door and caught him packing a large suitcase with his passport, a massive stack of cash, and a loaded handgun. He was planning to run. He must have checked the dashcam when I left and realized the SD card was missing.
-
-By the next morning, a forensics team was at the exact GPS coordinates deep in the forest. They unearthed the body of a woman named Clara, who had been reported missing two states over. The investigation blew wide open. The police uncovered that his real name wasn't even the one I knew him by. He was a prolific serial killer who targeted women with no close family, seduced them with a fake "perfect guy" persona, took out millions in life insurance, and buried them in remote areas.
-
-During the trial, he stared at me from across the courtroom with those same dead, empty eyes from the video. Because of the undeniable dashcam footage I saved, the jury deliberated for less than two hours. He was convicted of multiple counts of first-degree murder and sentenced to four consecutive life sentences in a maximum-security federal prison without the possibility of parole.
-
-I sold the house, legally changed my name, and moved across the country. I still flinch every time I hear a car crunching on gravel, but I know I'm the only reason that monster is locked away forever. `
-            }  
-            {
-                id: 4,
-                title: "We use a WiFi baby monitor for our newborn....",
-                summary: `Yesterday, the app glitched and forced a firmware update. After the update finished, the camera feed switched back on...`,
-                clearText: `We use a WiFi baby monitor for our newborn. Yesterday, the app glitched and forced a firmware update. After the update finished, the camera feed switched back on. But it wasn't showing our baby's crib anymore. The IP address got scrambled and it connected to another camera on the same network block. It was showing the inside of our neighbor's living room. He's a quiet, older guy who lives alone. I was about to close the app, feeling weird about spying, but I noticed something sitting on his coffee table. It was a detailed, hand-drawn blueprint of our house. But that wasn't the scary part. He walked into the frame holding a red marker, went to the blueprint, and drew a large 'X' right over the room where my baby sleeps. Then he looked directly into his camera and said, 'I'm inside your walls.' Suddenly, she heard a voice from the AC vent whisper, 'Found you....`,
-                blurredText: `I didn't scream, I didn't hesitate. I acted on pure, terrifying instinct. I lunged toward the crib, scooped up my sleeping baby, and sprinted out of the nursery without even looking back at the air vent. As I ran down the hallway, I heard the heavy metal vent grate crash to the floor behind me, followed by the sickening thud of someone dropping into the baby's room.
-
-I didn't grab my purse, my shoes, or my keys. I just unlocked the front door and ran barefoot into the freezing street, screaming for help at the top of my lungs. A neighbor driving home from a late shift slammed on his brakes, let me inside his car, and immediately called 911.
-
-The police arrived in less than three minutes. They surrounded the house with K-9 units and drew their weapons. They didn't find anyone in the nursery, but the dogs went absolutely crazy near the hallway closet. Behind a false wall hidden behind our water heater, they found a fully furnished crawlspace.
-
-He had tapped into our electricity, our water lines, and had tiny peepholes drilled into every single room of our house, including the bathroom and the nursery. He hadn't just broken in; he had been living inside the walls since before we even bought the house. The blueprints on his table weren't for breaking in—they were for expanding his hidden tunnels. The police arrested him trying to escape through a storm drain in the backyard. He is in maximum security prison now, but I still can't sleep. Every time I hear a house settle or a floorboard creak, my heart stops. We put the house up for sale the next morning.`
-            },
-            {
-                id: 5,
-                title: "The Midnight Train to Nowhere",
-                summary: "I fell asleep on the subway. When I woke up, the train was completely empty and moving fast...",
-                clearText: "I was exhausted after a double shift. I got on the last train home and instantly fell asleep. I woke up with a jolt. The lights were flickering, and the train was completely empty. I looked out the window, but there were no stations.",
-                blurredText: "Just an endless tunnel with strange red lights passing by. I walked to the next car, then the next. Empty. Finally, I reached the driver's cabin. The door was unlocked. I pulled it open... There was no driver. Just a tape recorder sitting on the control panel, playing a continuous loop. I pressed stop, but the voice kept playing. It was my voice, reading out the date and time of my own death... and the time was exactly one minute from now."
-            }     */
-            // ملاحظة لك: تبين تضيفين قصة سادسة؟ انسخي القوس { ... } حق اخر قصة وحطيه تحت مع تغيير الرقم والكلام!
+                title: `لغز المراية ذات الاتجاهين في كابينة Airbnb`,
+                summary: `استأجرت كابينة رخيصة عشان أذاكر لنهائياتي. المكان كان حلو، بس كان فيه مراية ضخمة...`,
+                clearText: `استأجرت كابينة Airbnb رخيصة في نص المقطعة عشان أذاكر لنهائياتي. المكان كان لطيف، بس كان فيه مراية كبيرة وثقيلة مثبتة على الجدار قدام السرير مباشرة. حسيت بشعور غريب، بس تجاهلته.`,
+                blurredText: `في الليلة الثانية، ضربت شنطتي الثقيلة في المراية بالغلط. القزاز ما انكسر، بس تشقق وانضغط لجوا شوي. كانت مراية باتجاهين! قلبي طاح ببطني. شغلت كشاف جوالي وطالعت من الشق. ما كان جدار فاضي، كان في كرسي، وورق تغليف أكل، وورقة ملصقة على القزاز مكتوب عليها تعليمات مرعبة تخصني أنا بالاسم...`
+            } */
         ];
-
-        // ------------------------------------------------------------------------
-        // أكواد الواجهة الأساسية (لا تلمسينها)
-        // ------------------------------------------------------------------------
-        const sideMenu = document.getElementById('sideMenu');
-        const overlay = document.getElementById('overlay');
-        const menuBtn = document.getElementById('menuBtn');
-
-        function toggleMenu() {
-            sideMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
-
-        menuBtn.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-
-        function switchTab(tabId, element) {
-            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-            document.querySelectorAll('.bottom-nav .nav-item').forEach(item => item.classList.remove('active'));
-            document.getElementById('page-' + tabId).classList.add('active');
-            if (element && element.classList.contains('nav-item')) {
-                element.classList.add('active');
-            } else {
-                document.querySelector('.bottom-nav .nav-item').classList.add('active');
-            }
-        }
 
         // ------------------------------------------------------------------------
         // طباعة القصص في الصفحة الرئيسية
@@ -597,7 +507,6 @@ He had tapped into our electricity, our water lines, and had tiny peepholes dril
         stories.forEach(story => {
             const card = document.createElement('div');
             card.className = 'story-card';
-            // لما يضغط الكرت، يرسل رقم القصة للدالة
             card.onclick = () => openReader(story.id);
             
             card.innerHTML = `
@@ -605,7 +514,7 @@ He had tapped into our electricity, our water lines, and had tiny peepholes dril
                 <div class="story-details">
                     <h3>${story.title}</h3>
                     <p>${story.summary}</p>
-                    <div class="read-btn-mini">Read Full Story</div>
+                    <div class="read-btn-mini">قراءة القصة كاملة</div>
                 </div>
             `;
             container.appendChild(card);
@@ -618,24 +527,17 @@ He had tapped into our electricity, our water lines, and had tiny peepholes dril
         let isTimerRunning = false;
 
         function openReader(id) {
-            // نجيب القصة من المخزن بناءً على الرقم
             const story = stories.find(s => s.id === id);
-            
-            // نعبي الشاشة بالنصوص
             document.getElementById('readerTitle').innerText = story.title;
             document.getElementById('readerClearText').innerText = story.clearText;
             document.getElementById('readerBlurredText').innerText = story.blurredText;
 
-            // نرجع كل شيء لوضعه الطبيعي (في حال كان فاتح قصة قبل)
             resetCpaOverlay();
-
-            // نظهر الشاشة
             readerModal.style.display = 'flex';
         }
 
         function closeReader() {
             readerModal.style.display = 'none';
-            // نوقف العداد اذا سكر الشاشة
             isTimerRunning = false; 
         }
 
@@ -648,15 +550,13 @@ He had tapped into our electricity, our water lines, and had tiny peepholes dril
             const successBtn = document.getElementById('successBtn');
             const desc = document.getElementById('cpaDesc');
 
-            // نرجع زر التحقق لشكله الطبيعي
+            // نرجع زر التحقق لشكله الطبيعي ونستخدم الباك تيك ( ` )
             btn.style.display = 'flex';
             btn.style.backgroundColor = 'var(--primary-blue)';
             btn.style.pointerEvents = 'auto';
-            btn.innerHTML = '<span class="material-symbols-rounded">verified_user</span> يرجى التحقق لمتابعة القراءة;
+            btn.innerHTML = `<span class="material-symbols-rounded">verified_user</span> تحقق الآن لمتابعة القراءة`;
             
-            desc.innerHTML = 'يرجى إكمال عملية تحقق سريعة للتأكد بأنك لست روبوت.';
-            
-            // نخفي زر النجاح
+            desc.innerHTML = `يرجى إكمال عملية تحقق سريعة للتأكد بأنك لست روبوت.`;
             successBtn.style.display = 'none';
         }
 
@@ -668,29 +568,26 @@ He had tapped into our electricity, our water lines, and had tiny peepholes dril
             const btn = document.getElementById('verifyBtn');
             const desc = document.getElementById('cpaDesc');
 
-            // نغير الزر لبرتقالي ونعطله
-            btn.innerHTML = '<span class="material-symbols-rounded" style="animation: spin 1s linear infinite;">sync</span> Verifying system...';
+            // نغير الزر لبرتقالي ونستخدم الباك تيك ( ` )
+            btn.innerHTML = `<span class="material-symbols-rounded" style="animation: spin 1s linear infinite;">sync</span> جاري التحقق من النظام...`;
             btn.style.backgroundColor = '#f39c12'; 
             btn.style.pointerEvents = 'none'; 
             
-            desc.innerHTML = 'Please complete the verification in the newly opened page. The system is scanning automatically.<br><br><strong style="color:var(--ios-red);">Do not close this window!</strong>';
+            desc.innerHTML = `يرجى إكمال العرض في الصفحة التي فتحت لك. النظام يقوم الآن بالتحقق تلقائياً.<br><br><strong style="color:var(--ios-red); font-size:14px;">لا تغلق هذه الصفحة حتى يكتمل التحقق!</strong>`;
 
             // العداد 5 دقائق = 300,000 ملي ثانية 
             setTimeout(() => {
-                // اذا لسه فاتح نفس القصة، طلع له زر النجاح
                 if(isTimerRunning) {
                     btn.style.display = 'none';
                     document.getElementById('successBtn').style.display = 'flex';
-                    desc.innerHTML = 'Scan complete! You can now access the full story.';
+                    desc.innerHTML = `اكتمل التحقق! يمكنك الآن قراءة باقي القصة.`;
                 }
-            }, 300000); // 300000 = 5 minutes
+            }, 300000); 
         }
 
         // 🚨 فتح القصة كاملة 🚨
         function unlockStory() {
-            // نخفي صندوق الـ CPA كامل
             document.getElementById('cpaBox').style.display = 'none';
-            // نشيل الغبش من النص
             const blurText = document.getElementById('readerBlurredText');
             blurText.style.filter = 'none';
             blurText.style.opacity = '1';
