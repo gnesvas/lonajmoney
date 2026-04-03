@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>مساحة التخزين السحابية</title>
+    <title>مكتبة القصص السحابية</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet" />
     
@@ -42,96 +42,36 @@
             z-index: 100;
         }
 
-        .menu-icon {
-            color: var(--primary-blue);
-            cursor: pointer;
-            font-size: 28px;
-            transition: transform 0.2s var(--ios-spring);
-        }
+        .menu-icon { color: var(--primary-blue); cursor: pointer; font-size: 28px; transition: transform 0.2s var(--ios-spring); }
         .menu-icon:active { transform: scale(0.85); }
-
-        .brand-logo {
-            display: flex;
-            align-items: center;
-            margin-right: 15px;
-            color: #1c1c1e;
-            font-weight: 700;
-            font-size: 22px;
-        }
-        
-        .brand-logo .material-symbols-rounded {
-            color: var(--primary-blue);
-            margin-left: 8px;
-            font-size: 30px;
-        }
+        .brand-logo { display: flex; align-items: center; margin-right: 15px; color: #1c1c1e; font-weight: 700; font-size: 22px; }
+        .brand-logo .material-symbols-rounded { color: var(--primary-blue); margin-left: 8px; font-size: 30px; }
 
         /* القائمة الجانبية */
         .side-menu {
-            position: fixed;
-            top: 0;
-            right: -300px; 
-            width: 260px;
-            height: 100%;
-            background-color: #ffffff;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.05);
-            transition: right 0.4s var(--ios-spring);
-            z-index: 1000;
-            padding-top: 20px;
+            position: fixed; top: 0; right: -300px; width: 260px; height: 100%;
+            background-color: #ffffff; box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+            transition: right 0.4s var(--ios-spring); z-index: 1000; padding-top: 20px;
         }
-
         .side-menu.active { right: 0; }
-
-        .menu-header {
-            padding: 0 20px 20px 20px;
-            border-bottom: 1px solid #f2f2f7;
-            margin-bottom: 10px;
-        }
-
-        .menu-item {
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
-            color: #3a3a3c;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
+        .menu-header { padding: 0 20px 20px 20px; border-bottom: 1px solid #f2f2f7; margin-bottom: 10px; }
+        .menu-item { padding: 16px 20px; display: flex; align-items: center; color: #3a3a3c; font-size: 16px; font-weight: 500; cursor: pointer; transition: background-color 0.2s; }
         .menu-item:active { background-color: #f2f2f7; }
         .menu-item .material-symbols-rounded { margin-left: 15px; color: #8e8e93; }
 
         /* التغبيش للقائمة */
         .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
-            z-index: 999;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); z-index: 999; opacity: 0;
+            pointer-events: none; transition: opacity 0.4s ease;
         }
         .overlay.active { opacity: 1; pointer-events: auto; }
 
         /* الحاوية الرئيسية */
         .pages-container { padding-bottom: 90px; }
-
-        .page {
-            display: none;
-            padding: 20px 16px;
-            animation: slideUp 0.4s var(--ios-spring);
-        }
+        .page { display: none; padding: 20px 16px; animation: slideUp 0.4s var(--ios-spring); }
         .page.active { display: block; }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
         /* الصفحات الفاضية */
         .empty-state { text-align: center; margin-top: 80px; color: #8e8e93; }
@@ -139,232 +79,107 @@
         .empty-state h2 { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #1c1c1e; }
         .empty-state p { font-size: 14px; line-height: 1.5; }
 
-        /* كروت القصص في الرئيسية */
-        .section-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #8e8e93;
-            margin-bottom: 15px;
-            padding-right: 5px;
-        }
-
-        .story-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
+        /* كروت القصص */
+        .section-title { font-size: 15px; font-weight: 700; color: #8e8e93; margin-bottom: 15px; padding-right: 5px; }
+        .story-list { display: flex; flex-direction: column; gap: 15px; }
         .story-card {
-            background-color: #ffffff;
-            border-radius: 16px;
-            padding: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            border: 1px solid rgba(0,0,0,0.02);
-            cursor: pointer;
-            transition: transform 0.2s var(--ios-bounce), box-shadow 0.2s;
-            display: flex;
-            align-items: center;
+            background-color: #ffffff; border-radius: 16px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.02); cursor: pointer; transition: transform 0.2s var(--ios-bounce), box-shadow 0.2s;
+            display: flex; align-items: center;
         }
-
         .story-card:active { transform: scale(0.96); background-color: #fafafa; }
-
-        .story-icon {
-            color: #8e8e93;
-            font-size: 40px;
-            margin-left: 15px;
-            background: #f2f2f7;
-            padding: 10px;
-            border-radius: 12px;
-        }
-
+        .story-icon { color: #8e8e93; font-size: 40px; margin-left: 15px; background: #f2f2f7; padding: 10px; border-radius: 12px; }
         .story-details { flex-grow: 1; }
         .story-details h3 { margin: 0 0 5px 0; font-size: 15px; font-weight: 700; color: #1c1c1e; line-height: 1.4;}
         .story-details p { margin: 0; font-size: 13px; color: #8e8e93; line-height: 1.4;}
-        
-        .read-btn-mini {
-            background-color: #e5f0ff;
-            color: var(--primary-blue);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            margin-top: 8px;
-            display: inline-block;
-        }
+        .read-btn-mini { background-color: #e5f0ff; color: var(--primary-blue); padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; margin-top: 8px; display: inline-block; }
 
         /* الناف بار السفلي */
         .bottom-nav {
-            background-color: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-top: 1px solid rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 50;
-            padding-bottom: calc(10px + env(safe-area-inset-bottom));
+            background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: space-around; padding: 10px 0;
+            position: fixed; bottom: 0; width: 100%; z-index: 50; padding-bottom: calc(10px + env(safe-area-inset-bottom));
         }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #8e8e93;
-            font-size: 11px;
-            font-weight: 500;
-            cursor: pointer;
-            width: 25%;
-            transition: transform 0.2s var(--ios-spring), color 0.2s;
-        }
-
+        .nav-item { display: flex; flex-direction: column; align-items: center; color: #8e8e93; font-size: 11px; font-weight: 500; cursor: pointer; width: 25%; transition: transform 0.2s var(--ios-spring), color 0.2s; }
         .nav-item:active { transform: scale(0.85); }
         .nav-item.active { color: var(--primary-blue); }
         .nav-item .material-symbols-rounded { font-size: 26px; margin-bottom: 4px; }
 
-        /* --------------------------------------------------- */
-        /* شاشة القراءة (الفخامة والسواد) */
-        /* --------------------------------------------------- */
+        /* شاشة القراءة (قارئ القصص) */
         .reader-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--reader-bg);
-            z-index: 3000;
-            display: none;
-            flex-direction: column;
-            overflow-y: auto;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--reader-bg);
+            z-index: 3000; display: none; flex-direction: column; overflow-y: auto;
             animation: slideUpReader 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-
-        @keyframes slideUpReader {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
-        }
-
+        @keyframes slideUpReader { from { transform: translateY(100%); } to { transform: translateY(0); } }
         .reader-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: rgba(18, 18, 18, 0.9);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(18, 18, 18, 0.9);
+            backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 10; border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-
-        .close-reader {
-            color: #fff;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            padding: 5px;
-            cursor: pointer;
-        }
-
-        .reader-title-top {
-            color: #fff;
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
-
+        .close-reader { color: #fff; background: rgba(255,255,255,0.1); border-radius: 50%; padding: 5px; cursor: pointer; }
+        .reader-title-top { color: #fff; font-weight: 700; font-size: 14px; letter-spacing: 1px; }
+        
         .reader-content {
-            padding: 25px 20px 100px 20px;
-            color: var(--reader-text);
-            font-size: 16px;
-            line-height: 1.8;
+            padding: 25px 20px 100px 20px; color: var(--reader-text); font-size: 16px; line-height: 1.8;
             font-family: 'Tajawal', sans-serif;
+            white-space: pre-wrap; /* 🚨 هذي الخاصية السحرية اللي تسمح لك تضغطين إنتر براحتك بدون ما يخرب الكود 🚨 */
         }
+        .story-title-main { font-size: 22px; font-weight: 900; margin-bottom: 20px; color: #fff; line-height: 1.4; white-space: normal;}
 
-        .story-title-main {
-            font-size: 22px;
-            font-weight: 900;
-            margin-bottom: 20px;
-            color: #fff;
-            line-height: 1.4;
-        }
+        .blurred-section-container { position: relative; margin-top: 10px; }
+        .blurred-text { filter: blur(6px); opacity: 0.5; user-select: none; pointer-events: none; }
 
-        /* الجزء المغبش */
-        .blurred-section-container {
-            position: relative;
-            margin-top: 10px;
-        }
-
-        .blurred-text {
-            filter: blur(6px);
-            opacity: 0.5;
-            user-select: none;
-            pointer-events: none;
-        }
-
-        /* شاشة التحقق اللي تطلع فوق الجزء المغبش */
         .cpa-overlay {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            background: rgba(30, 30, 30, 0.85);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            padding: 25px 20px;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            z-index: 5;
-            box-sizing: border-box;
+            position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 90%;
+            background: rgba(30, 30, 30, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 25px 20px; text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5); z-index: 5; box-sizing: border-box; white-space: normal;
         }
-
-        .cpa-overlay .material-symbols-rounded {
-            font-size: 45px;
-            color: #f39c12;
-            margin-bottom: 10px;
-        }
-
+        .cpa-overlay .material-symbols-rounded { font-size: 45px; color: #f39c12; margin-bottom: 10px; }
         .cpa-overlay h3 { margin: 0 0 10px 0; color: #fff; font-size: 18px; font-family: 'Tajawal', sans-serif;}
         .cpa-overlay p { margin: 0 0 20px 0; color: #aaa; font-size: 13px; font-family: 'Tajawal', sans-serif; line-height: 1.5;}
 
         .verify-btn {
-            background-color: var(--primary-blue);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            padding: 14px 15px;
-            font-size: 15px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            box-sizing: border-box;
-            box-shadow: 0 4px 15px rgba(0, 122, 255, 0.4);
-            font-family: 'Tajawal', sans-serif;
-            border: none;
-            cursor: pointer;
-            transition: 0.2s;
+            background-color: var(--primary-blue); color: white; text-decoration: none; border-radius: 12px;
+            padding: 14px 15px; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+            width: 100%; box-sizing: border-box; box-shadow: 0 4px 15px rgba(0, 122, 255, 0.4); font-family: 'Tajawal', sans-serif;
+            border: none; cursor: pointer; transition: 0.2s;
         }
-
         .verify-btn:active { transform: scale(0.95); }
         .verify-btn .material-symbols-rounded { margin-left: 8px; font-size: 20px;}
-
-        /* زر النجاح المخفي */
-        .success-btn {
-            background-color: #34c759;
-            display: none;
-            box-shadow: 0 4px 15px rgba(52, 199, 89, 0.4);
-        }
-
+        .success-btn { background-color: #34c759; display: none; box-shadow: 0 4px 15px rgba(52, 199, 89, 0.4); }
     </style>
 </head>
 <body>
 
+    <div id="stories-database" style="display: none;">
+        
+        <div class="story-data" id="story-1">
+            <div class="s-title">قصة خيانة صديقتي وكاميرات المراقبة السرية</div>
+            <div class="s-summary">أسوأ طعنة تجيك من أقرب الناس لك! تخيلوا، أعز صديقاتي، عشرة العمر...</div>
+            
+            <div class="s-clear">أسوأ طعنة تجيك من أقرب الناس لك! تخيلوا، أعز صديقاتي، عشرة العمر، أختي اللي ما جابتها أمي، اللي أمنتها على بيتي وعطيتها مفتاحي الاحتياطي عشان تأكل قطوتي وقت سفري.. طلعت هي الكابوس اللي دمر حياتي!
+
+السالفة وما فيها، إني كنت منتدبة لرحلة عمل في جدة، وخلصت شغلي ورجعت للرياض بدري بيوم. دخلت شقتي وأنا هلكانة وأدور الفراش. فتحت باب غرفتي وتفاجأت بلابتوب صديقتي مفتوح وشغال ومحطوط على سريري! استغربت، وش جاب لابتوبها هنا؟ هي المفروض تجي العصر تحط أكل للقطوة وتمشي.
+
+جيت عشان أقفله وأحطه على جنب، بس لمحّت مجلد ضخم على سطح المكتب.. الصدمة إن المجلد كان مسمّى بـ "العنوان الوطني" حق شقتي بالتفصيل! قلبي نغزني وحسيت بكتمة، مسكت الماوس وفتحت المجلد، وهنا شفت الكارثة اللي شيبت راسي.</div>
+            
+            <div class="s-blurred">المجلد كان مليان مئات الفيديوهات، مقسمة بتواريخ! فيديوهات متصورة بكاميرات خفية مزروعة داخل حمامي، وغرفة نومي، وحتى بالصالة! يدي صارت ترجف، ومن الرعب، شغلت أقدم فيديو موجود عشان أعرف مين المريض المختل اللي قدر يدخل شقتي ويركب هالكاميرات.
+
+في الفيديو القديم، كانت الكاميرا تصور من زاوية فوق المراية حقت الحمام.. ما شفت رجال غريب.. شفت أعز صديقاتي! كانت بالفيديو تبتسم وتدندن، وتضبط زاوية كاميرا صغيرة مخفية داخل "شفاط الحمام". السالفة مو بس إنها تتطفل؛ هذي البنت هي اللي لغمت شقتي كلها بالكاميرات من وراي!
+
+جلست على طرف السرير، وحسيت بشلل تام، كأني بحلم ومو قادرة أصحى. قمت أتصفح باقي الملفات.. مقاطع لي وأنا نايمة، وأنا أبدل ملابسي، وأنا أتروش! بس الأرعب من هذا كله كان ملف "إكسل" محفوظ جنب الفيديوهات. فتحته ولقيت جداول تفصيلية: أسماء وهمية لأشخاص، عناوين محافظ "بتكوين"، مبالغ خيالية، وتواريخ دفع.
+
+صديقة عمري ما كانت مجرد مريضة تتجسس علي؛ طلعت فاتحة بث مباشر (لايف) لحياتي الخاصة، وتبيع المقاطع لرجال في "الإنترنت المظلم" (الدارك ويب) من سنتين! كسبت وتاجرت بعرضي وخصوصيتي وطلّعت من وراي مئات الآلاف!
+
+فجأة.. وفي عز صدمتي.. سمعت صوت طقة الكالون ينفتح!
+تجمدت في مكاني. صوت خطواتها كانت تقرب من الغرفة. قفلت اللابتوب بسرعة البرق ورميته على السرير ومثلت إني نايمة وتعبانة. دخلت الغرفة، شافتني، وشهقت برعب! "بسم الله! متى رجعتي؟ مو قلتي بكرة؟!" 
+
+ابتسمت لها ببرود وأنا أحس بنار تحرقني من الداخل.. وقلت لها: "خلصت بدري.. بس تصدقين؟ في شيء غريب بشقتي.. أحس إني مو لحالي."
+وجهها انخطف لونه، ومن هنا بدأت خطتي للانتقام منها وتدمير حياتها زي ما دمرتني...</div>
+        </div>
+
+    </div>
     <div class="overlay" id="overlay"></div>
 
     <div class="side-menu" id="sideMenu">
@@ -425,27 +240,22 @@
         <div class="reader-content">
             <div class="story-title-main" id="readerTitle">Title Here</div>
             
-            <div id="readerClearText" style="margin-bottom: 10px;">
-                Clear text goes here...
-            </div>
+            <div id="readerClearText" style="margin-bottom: 10px;"></div>
 
             <div class="blurred-section-container" id="blurContainer">
-                
-                <div class="blurred-text" id="readerBlurredText">
-                    Blurred text goes here...
-                </div>
+                <div class="blurred-text" id="readerBlurredText"></div>
 
                 <div class="cpa-overlay" id="cpaBox">
                     <span class="material-symbols-rounded">lock</span>
                     <h3>المحتوى مقفل</h3>
                     <p id="cpaDesc">يرجى إكمال عملية تحقق سريعة للتأكد بأنك لست روبوت.</p>
                     
-                    <a href="https://unlock-file.com/?f892a37" target="_blank" class="verify-btn" id="verifyBtn" onclick="startStoryTimer(event)">
+                    <a href="https://locked-content.com/?0194154" target="_blank" class="verify-btn" id="verifyBtn" onclick="startStoryTimer(event)">
                         <span class="material-symbols-rounded">verified_user</span>
                         تحقق الآن لمتابعة القراءة
                     </a>
 
-                    <button class="verify-btn success-btn" id="successBtn" onclick="unlockStory()">
+                    <button class="verify-btn success-btn" id="successBtn" onclick="window.location.href='https://shhdshe.gumroad.com/l/vlghf'">
                         <span class="material-symbols-rounded">lock_open</span>
                         إكتمل التحقق! اضغط للقراءة
                     </button>
@@ -455,82 +265,62 @@
     </div>
 
     <script>
-        // ------------------------------------------------------------------------
-        // 🚨🚨🚨 مكتبة القصص 🚨🚨🚨
-        // لاحظي علامة ( ` ) هي اللي استخدمناها عشان ننزل سطور براحتنا ومستحيل يخرب الكود!
-        // ------------------------------------------------------------------------
-        const stories = [
-            {
-                id: 1,
-                title: `قصة خيانة صديقتي وكاميرات المراقبة السرية`,
-                summary: `أسوأ طعنة تجيك من أقرب الناس لك! تخيلوا، أعز صديقاتي، عشرة العمر...`,
-                clearText: `أسوأ طعنة تجيك من أقرب الناس لك! تخيلوا، أعز صديقاتي، عشرة العمر، أختي اللي ما جابتها أمي، اللي أمنتها على بيتي وعطيتها مفتاحي الاحتياطي عشان تأكل قطوتي وقت سفري.. طلعت هي الكابوس اللي دمر حياتي!
+        const sideMenu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('overlay');
+        const menuBtn = document.getElementById('menuBtn');
 
-السالفة وما فيها، إني كنت منتدبة لرحلة عمل في جدة، وخلصت شغلي ورجعت للرياض بدري بيوم. دخلت شقتي وأنا هلكانة وأدور الفراش. فتحت باب غرفتي وتفاجأت بلابتوب صديقتي مفتوح وشغال ومحطوط على سريري! استغربت، وش جاب لابتوبها هنا؟ هي المفروض تجي العصر تحط أكل للقطوة وتمشي.
+        function toggleMenu() {
+            sideMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
 
-جيت عشان أقفله وأحطه على جنب، بس لمحّت مجلد ضخم على سطح المكتب.. الصدمة إن المجلد كان مسمّى بـ "العنوان الوطني" حق شقتي بالتفصيل! قلبي نغزني وحسيت بكتمة، مسكت الماوس وفتحت المجلد، وهنا شفت الكارثة اللي شيبت راسي.
+        menuBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
 
-المجلد كان مليان مئات الفيديوهات، مقسمة بتواريخ! فيديوهات متصورة بكاميرات خفية مزروعة داخل حمامي، وغرفة نومي، وحتى بالصالة! يدي صارت ترجف، ومن الرعب، شغلت أقدم فيديو موجود عشان أعرف مين المريض المختل اللي قدر يدخل شقتي ويركب هالكاميرات.
+        function switchTab(tabId, element) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.bottom-nav .nav-item').forEach(item => item.classList.remove('active'));
+            document.getElementById('page-' + tabId).classList.add('active');
+            
+            if (element && element.classList.contains('nav-item')) {
+                element.classList.add('active');
+            } else {
+                document.querySelector('.bottom-nav .nav-item').classList.add('active');
+            }
+        }
 
-في الفيديو القديم، كانت الكاميرا تصور من زاوية فوق المراية حقت الحمام.. ما شفت رجال غريب.. شفت أعز صديقاتي! كانت بالفيديو تبتسم وتدندن، وتضبط زاوية كاميرا صغيرة مخفية داخل "شفاط الحمام". السالفة مو بس إنها تتطفل؛ هذي البنت هي اللي لغمت شقتي كلها بالكاميرات من وراي!
-
-جلست على طرف السرير، وحسيت بشلل تام، كأني بحلم ومو قادرة أصحى. قمت أتصفح باقي الملفات.. مقاطع لي وأنا نايمة، وأنا أبدل ملابسي، وأنا أتروش! بس الأرعب من هذا كله كان ملف "إكسل" محفوظ جنب الفيديوهات. فتحته ولقيت جداول تفصيلية: أسماء وهمية لأشخاص، عناوين محافظ "بتكوين"، مبالغ خيالية، وتواريخ دفع.
-
-صديقة عمري ما كانت مجرد مريضة تتجسس علي؛ طلعت فاتحة بث مباشر (لايف) لحياتي الخاصة، وتبيع المقاطع لرجال في "الإنترنت المظلم" (الدارك ويب) من سنتين! كسبت وتاجرت بعرضي وخصوصيتي وطلّعت من وراي مئات الآلاف!
-
-فجأة.. وفي عز صدمتي.. سمعت صوت طقة الكالون ينفتح!`,
-                blurredText: `تجمدت في مكاني. صوت خطواتها كانت تقرب من الغرفة. قفلت اللابتوب بسرعة البرق ورميته على السرير ومثلت إني نايمة وتعبانة. دخلت الغرفة، شافتني، وشهقت برعب! "بسم الله! متى رجعتي؟ مو قلتي بكرة؟!" 
-
-ابتسمت لها ببرود وأنا أحس بنار تحرقني من الداخل.. وقلت لها: "خلصت بدري.. بس تصدقين؟ في شيء غريب بشقتي.. أحس إني مو لحالي."
-وجهها انخطف لونه، ومن هنا بدأت خطتي للانتقام منها وتدمير حياتها زي ما دمرتني...`
-            },/*
-            {
-                id: 2,
-                title: `بيت الأحلام اللي تحول لكابوس بـ 1000 دولار`,
-                summary: `أخذت وظيفة حراسة بيت غني لمدة يومين. كان عندهم شرط واحد فقط...`,
-                clearText: `أخذت وظيفة حراسة بيت في نهاية الأسبوع لزوجين أغنياء. الراتب كان خيالي (1000 دولار في ليلتين)، وكان عندهم قاعدة واحدة فقط: لا تفتح باب القبو أبدًا. بصراحة، ما اهتميت، كنت بس أبغى أتابع نتفليكس وأرتاح.`,
-                blurredText: `في الليلة الثانية، فصل الواي فاي. طلعت للممر عشان أعيد تشغيل الراوتر، واللي كان جنب باب القبو بالضبط. وأنا أنتظر، سمعت صوت.. ما كان صوت شبح، كان صوتي أنا! تسجيل لي وأنا أضحك من مكالمة مع أمي قبل ساعتين.. الصوت كان طالع من تحت باب القبو! نزلت على ركبي وطالعت من تحت الباب. القبو كان ظلام، إلا من شاشة كمبيوتر كبيرة، واللي شفته على الشاشة خلاني أتجمد من الرعب...`
-            },
-            {
-                id: 3,
-                title: `لغز المراية ذات الاتجاهين في كابينة Airbnb`,
-                summary: `استأجرت كابينة رخيصة عشان أذاكر لنهائياتي. المكان كان حلو، بس كان فيه مراية ضخمة...`,
-                clearText: `استأجرت كابينة Airbnb رخيصة في نص المقطعة عشان أذاكر لنهائياتي. المكان كان لطيف، بس كان فيه مراية كبيرة وثقيلة مثبتة على الجدار قدام السرير مباشرة. حسيت بشعور غريب، بس تجاهلته.`,
-                blurredText: `في الليلة الثانية، ضربت شنطتي الثقيلة في المراية بالغلط. القزاز ما انكسر، بس تشقق وانضغط لجوا شوي. كانت مراية باتجاهين! قلبي طاح ببطني. شغلت كشاف جوالي وطالعت من الشق. ما كان جدار فاضي، كان في كرسي، وورق تغليف أكل، وورقة ملصقة على القزاز مكتوب عليها تعليمات مرعبة تخصني أنا بالاسم...`
-            } */
-        ];
-
-        // ------------------------------------------------------------------------
-        // طباعة القصص في الصفحة الرئيسية
-        // ------------------------------------------------------------------------
+        // سحب القصص من لغة الـ HTML وطباعتها بأمان تام
+        const dbStories = document.querySelectorAll('.story-data');
         const container = document.getElementById('storyListContainer');
-        stories.forEach(story => {
+        
+        dbStories.forEach(story => {
+            const id = story.id;
+            const title = story.querySelector('.s-title').innerHTML;
+            const summary = story.querySelector('.s-summary').innerHTML;
+            
             const card = document.createElement('div');
             card.className = 'story-card';
-            card.onclick = () => openReader(story.id);
+            card.onclick = () => openReader(id);
             
             card.innerHTML = `
                 <div class="material-symbols-rounded story-icon">auto_stories</div>
                 <div class="story-details">
-                    <h3>${story.title}</h3>
-                    <p>${story.summary}</p>
+                    <h3>${title}</h3>
+                    <p>${summary}</p>
                     <div class="read-btn-mini">قراءة القصة كاملة</div>
                 </div>
             `;
             container.appendChild(card);
         });
 
-        // ------------------------------------------------------------------------
-        // منطق شاشة القراءة والعداد
-        // ------------------------------------------------------------------------
         const readerModal = document.getElementById('readerModal');
         let isTimerRunning = false;
 
-        function openReader(id) {
-            const story = stories.find(s => s.id === id);
-            document.getElementById('readerTitle').innerText = story.title;
-            document.getElementById('readerClearText').innerText = story.clearText;
-            document.getElementById('readerBlurredText').innerText = story.blurredText;
+        function openReader(storyId) {
+            const story = document.getElementById(storyId);
+            document.getElementById('readerTitle').innerHTML = story.querySelector('.s-title').innerHTML;
+            document.getElementById('readerClearText').innerHTML = story.querySelector('.s-clear').innerHTML;
+            document.getElementById('readerBlurredText').innerHTML = story.querySelector('.s-blurred').innerHTML;
 
             resetCpaOverlay();
             readerModal.style.display = 'flex';
@@ -550,17 +340,16 @@
             const successBtn = document.getElementById('successBtn');
             const desc = document.getElementById('cpaDesc');
 
-            // نرجع زر التحقق لشكله الطبيعي ونستخدم الباك تيك ( ` )
             btn.style.display = 'flex';
             btn.style.backgroundColor = 'var(--primary-blue)';
             btn.style.pointerEvents = 'auto';
-            btn.innerHTML = `<span class="material-symbols-rounded">verified_user</span> تحقق الآن لمتابعة القراءة`;
+            btn.innerHTML = '<span class="material-symbols-rounded">verified_user</span> تحقق الآن لمتابعة القراءة';
             
-            desc.innerHTML = `يرجى إكمال عملية تحقق سريعة للتأكد بأنك لست روبوت.`;
+            desc.innerHTML = 'يرجى إكمال عملية تحقق سريعة للتأكد بأنك لست روبوت.';
             successBtn.style.display = 'none';
         }
 
-        // 🚨 العداد السري (5 دقايق) 🚨
+        // العداد السري (4 دقايق)
         function startStoryTimer(event) {
             if(isTimerRunning) return; 
             isTimerRunning = true;
@@ -568,32 +357,21 @@
             const btn = document.getElementById('verifyBtn');
             const desc = document.getElementById('cpaDesc');
 
-            // نغير الزر لبرتقالي ونستخدم الباك تيك ( ` )
-            btn.innerHTML = `<span class="material-symbols-rounded" style="animation: spin 1s linear infinite;">sync</span> جاري التحقق من النظام...`;
+            btn.innerHTML = '<span class="material-symbols-rounded" style="animation: spin 1s linear infinite;">sync</span> جاري التحقق من النظام...';
             btn.style.backgroundColor = '#f39c12'; 
             btn.style.pointerEvents = 'none'; 
             
-            desc.innerHTML = `يرجى إكمال العرض في الصفحة التي فتحت لك. النظام يقوم الآن بالتحقق تلقائياً.<br><br><strong style="color:var(--ios-red); font-size:14px;">لا تغلق هذه الصفحة حتى يكتمل التحقق!</strong>`;
+            desc.innerHTML = 'يرجى إكمال العرض في الصفحة التي فتحت لك. النظام يقوم الآن بالتحقق تلقائياً.<br><br><strong style="color:var(--ios-red); font-size:14px;">لا تغلق هذه الصفحة حتى يكتمل التحقق!</strong>';
 
-            // العداد 5 دقائق = 300,000 ملي ثانية 
+            // العداد 4 دقائق بالضبط = 240,000 ملي ثانية 
             setTimeout(() => {
                 if(isTimerRunning) {
                     btn.style.display = 'none';
                     document.getElementById('successBtn').style.display = 'flex';
-                    desc.innerHTML = `اكتمل التحقق! يمكنك الآن قراءة باقي القصة.`;
+                    desc.innerHTML = 'اكتمل التحقق! يمكنك الآن قراءة باقي القصة.';
                 }
-            }, 300000); 
+            }, 240000); 
         }
-
-        // 🚨 فتح القصة كاملة 🚨
-        function unlockStory() {
-            document.getElementById('cpaBox').style.display = 'none';
-            const blurText = document.getElementById('readerBlurredText');
-            blurText.style.filter = 'none';
-            blurText.style.opacity = '1';
-            blurText.style.userSelect = 'auto';
-        }
-
     </script>
 </body>
 </html>
