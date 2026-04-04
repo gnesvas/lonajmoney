@@ -122,7 +122,7 @@
         .reader-content {
             padding: 25px 20px 100px 20px; color: var(--reader-text); font-size: 16px; line-height: 1.8;
             font-family: 'Tajawal', sans-serif;
-            white-space: pre-wrap; /* 🚨 هذي الخاصية السحرية اللي تسمح لك تضغطين إنتر براحتك بدون ما يخرب الكود 🚨 */
+            white-space: pre-wrap; 
         }
         .story-title-main { font-size: 22px; font-weight: 900; margin-bottom: 20px; color: #fff; line-height: 1.4; white-space: normal;}
 
@@ -290,6 +290,7 @@
         </div>
 
     </div>
+
     <div class="overlay" id="overlay"></div>
 
     <div class="side-menu" id="sideMenu">
@@ -399,7 +400,6 @@
             }
         }
 
-        // سحب القصص من لغة الـ HTML وطباعتها بأمان تام
         const dbStories = document.querySelectorAll('.story-data');
         const container = document.getElementById('storyListContainer');
         
@@ -424,7 +424,9 @@
         });
 
         const readerModal = document.getElementById('readerModal');
+        
         let isTimerRunning = false;
+        let countdownInterval; // 🚨 المتغير اللي يحفظ العداد 🚨
 
         function openReader(storyId) {
             const story = document.getElementById(storyId);
@@ -443,6 +445,7 @@
 
         function resetCpaOverlay() {
             isTimerRunning = false;
+            clearInterval(countdownInterval); // 🚨 تصفير العداد لو البنت قفلت القصة 🚨
             document.getElementById('readerBlurredText').style.filter = 'blur(6px)';
             document.getElementById('cpaBox').style.display = 'block';
             
@@ -459,7 +462,7 @@
             successBtn.style.display = 'none';
         }
 
-        // العداد السري (4 دقايق)
+        // 🚨 العداد المرئي (5 دقايق = 300 ثانية) 🚨
         function startStoryTimer(event) {
             if(isTimerRunning) return; 
             isTimerRunning = true;
@@ -467,20 +470,42 @@
             const btn = document.getElementById('verifyBtn');
             const desc = document.getElementById('cpaDesc');
 
-            btn.innerHTML = '<span class="material-symbols-rounded" style="animation: spin 1s linear infinite;">sync</span> جاري التحقق من النظام...';
+            // تغيير لون الزر لبرتقالي ونعطله عشان ما ينضغط مرة ثانية
             btn.style.backgroundColor = '#f39c12'; 
             btn.style.pointerEvents = 'none'; 
             
             desc.innerHTML = 'يرجى إكمال العرض في الصفحة التي فتحت لك. النظام يقوم الآن بالتحقق تلقائياً.<br><br><strong style="color:var(--ios-red); font-size:14px;">لا تغلق هذه الصفحة حتى يكتمل التحقق!</strong>';
 
-            // العداد 4 دقائق بالضبط = 240,000 ملي ثانية 
-            setTimeout(() => {
-                if(isTimerRunning) {
-                    btn.style.display = 'none';
-                    document.getElementById('successBtn').style.display = 'flex';
+            let timeLeft = 300; // 5 دقائق بالثواني
+
+            // هذي الدالة اللي تحدث الوقت كل ثانية على الزر
+            function updateDisplay() {
+                let m = Math.floor(timeLeft / 60);
+                let s = timeLeft % 60;
+                let timeStr = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+                btn.innerHTML = '<span class="material-symbols-rounded" style="animation: spin 1s linear infinite;">sync</span> جاري التحقق... (' + timeStr + ')';
+            }
+
+            updateDisplay(); // إظهار الوقت فوراً أول ما تضغط
+
+            // العداد اللي ينقص ثانية بثانية
+            countdownInterval = setInterval(() => {
+                if(!isTimerRunning) {
+                    clearInterval(countdownInterval);
+                    return;
+                }
+                
+                timeLeft--;
+                updateDisplay();
+
+                // إذا خلصت الـ 5 دقايق (وصلنا للصفر)
+                if(timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    btn.style.display = 'none'; // نخفي زر التحقق
+                    document.getElementById('successBtn').style.display = 'flex'; // نطلع زر النجاح الأخضر
                     desc.innerHTML = 'اكتمل التحقق! يمكنك الآن قراءة باقي القصة.';
                 }
-            }, 240000); 
+            }, 1000); 
         }
     </script>
 </body>
