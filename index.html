@@ -219,6 +219,21 @@
         .success-msg .material-symbols-rounded {
             font-size: 40px;
         }
+        /* منع التحديد والنسخ في الموقع بالكامل ما عدا خانات الكتابة */
+        body {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        input, textarea {
+            -webkit-user-select: auto !important;
+            -moz-user-select: auto !important;
+            -ms-user-select: auto !important;
+            user-select: auto !important;
+        }
     </style>
 </head>
 <body>
@@ -2349,6 +2364,17 @@
                 }
             });
         }
+        // منع النقر بزر الماوس الأيمن واختصارات النسخ مع حماية الفورم
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+            }
+        });
+        document.addEventListener('copy', function(e) {
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+            }
+        });
     </script>
 </body>
 </html>
